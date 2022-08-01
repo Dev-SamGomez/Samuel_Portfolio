@@ -1,0 +1,11 @@
+{
+  "name": "portofolio",
+  "version": "1.0.0",
+  "description": "Portofolio Samuel Gomez",
+  "main": "main_in.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Samuel Gomez",
+  "license": "MIT"
+}
