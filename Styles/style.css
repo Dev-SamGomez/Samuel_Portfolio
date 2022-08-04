@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;   
+    box-sizing: border-box;
+}
+.general-position-top{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(41, 41, 41);
+}
+.nav-ban{
+    background-color: rgb(41, 41, 41);
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    bottom:0 auto;
+    background-size: cover;
+    background-position: center;
+    display: block;
+    margin:0;
+    padding:0;
+    line-height:0;
+}
+.navbar{
+    width: 85%;
+    margin: auto;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+.navbar ul li a{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+.navbar ul li::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    background: rgb(0, 0, 0);
+    position: absolute;
+    left: 0;
+    bottom: -14px;
+    transition: 0.5s;
+}
+.navbar ul li:hover::after{
+    width: 100%;
+}
+.container-general{
+    background-color: rgb(41, 41, 41);
+    width: 100%;
+    height: 100%;
+    margin:0 auto;
+    top:auto;
+    position:relative;
+    color: #fff;
+    display: block;
+    margin:0;
+    padding:0;
+}
+#container-tittle-page {
+    background-color: rgb(41, 41, 41);
+    width: 500px;
+    height: 500px;
+    margin: 1rem;
+    display: grid;
+    place-items: center;
+    align-content: center;
+    justify-content: center;
+}
+#contenido-tittle-page{
+    font-size:larger;
+    width: 400px;
+    height: 60px;
+    margin: 0 auto;
+    display: grid;
+    letter-spacing: 5px;
+}
+#contenido-text-page{
+    font-size: small;
+}
+.container-space{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.content-pic-profile{
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto; 
+    align-items: center;
+    justify-content: center;
+    width: auto; 
+    max-height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: table-cell;
+    vertical-align: middle;
+}
+#content-pic-profiler>img {
+    max-width: 50%;
+ }
+
+ .burguer-menu {
+    display: none;
+}
+ @media only screen and (max-width: 767px) {
+    .burguer-menu {
+        text-align:center;
+        display: block;
+        cursor: pointer;
+        padding: 0.5rem 1rem;
+    }
+    .navigation {
+        width: 100%;
+        margin-top: 1rem;
+    }
+    .navigation ul {
+        display: none;
+    }
+    .navigation ul.show {
+        display: block;
+    }
+    .navigation ul li {
+        display: block;
+    }
+    .navigation ul li a {
+        display: block;
+        padding: 0.5rem 0;
+        transition: all 0.4s linear;
+        border-radius: 5px;
+        /*esta hace que los botones tengan transicion, poner en el principal de kevsa*/
+    }
+    .navigation ul li a:hover {
+        background: rgb(126, 128, 131);
+    }
+}
+/*
+ @media screen and (max-width:1024px) {
+   .navbar{
+    /*width: 60%;*/
+   /*}
+ }*/
+ /*
+ @media screen and (max-width:760px) {
+    body{
+        overflow-x: hidden;
+    }
+    ul{
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        top: 8vh;
+        background-color: rgb(41, 41, 41);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+       }
+}
+*/
