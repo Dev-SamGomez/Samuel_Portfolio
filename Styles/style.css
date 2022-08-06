@@ -128,6 +128,12 @@ nav{
     display:block;
     cursor: pointer;
     }
+    .container-space{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
  }
  .nav-active{
     transform: translateX(0%);
