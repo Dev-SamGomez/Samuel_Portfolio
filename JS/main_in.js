@@ -28,15 +28,30 @@ const navSlide = () => {
         Burguer.classList.toggle('toggle');
     });     
 }
-const oAlert = (sendFor) => {
-    alert(`Estas accediendo desde ${sendFor}`);
+const oAlert = () => {
+    const Home = document.getElementById('link-Home');
+    Home.addEventListener('click',()=>{
+        alert("Home");
+    })
+    const About = document.getElementById('link-About');
+    About.addEventListener('click',()=>{
+        alert("About");
+    })
+    const Projcts = document.getElementById('link-Projects');
+    Projcts.addEventListener('click',()=>{
+        alert("Projects");
+    })
+    const ConctMe = document.getElementById('link-ContactMe');
+    ConctMe.addEventListener('click',()=>{
+        alert("Contact Me");
+    })    
     //console.log(`Estas accediendo desde ${sendFor}`);
 }
-
 window.addEventListener('load',() => {
     let Animation = document.getElementById('container-tittle-page');
     let ObjAnimationPos = Animation.getBoundingClientRect().top;
     console.log(ObjAnimationPos);
 })
+oAlert();
 GetSize();
 navSlide();
