@@ -4,6 +4,14 @@ const Transition = (i,NumInt,Sc) => {
      return i / NumInt + Sc;
 }
 const CalcTimeMov = 7 + 1.7;
+const GetSize = () => {
+    let oWidth = document.documentElement.clientWidth;
+    let oHeight = document.documentElement.clientHeight;
+    let content = `Width: ${oWidth} and Height: ${oHeight}`;
+    let Resize = document.getElementById("SetGetElements").style;
+    //Resize.height = oHeight;
+    console.log(content);
+}
 const navSlide = () => {
     const Burguer = document.querySelector('.burguer-menu');
     const nav = document.querySelector('.nav-links');
@@ -20,4 +28,15 @@ const navSlide = () => {
         Burguer.classList.toggle('toggle');
     });     
 }
+const oAlert = (sendFor) => {
+    alert(`Estas accediendo desde ${sendFor}`);
+    //console.log(`Estas accediendo desde ${sendFor}`);
+}
+
+window.addEventListener('load',() => {
+    let Animation = document.getElementById('container-tittle-page');
+    let ObjAnimationPos = Animation.getBoundingClientRect().top;
+    console.log(ObjAnimationPos);
+})
+GetSize();
 navSlide();
