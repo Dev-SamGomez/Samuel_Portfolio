@@ -1,9 +1,34 @@
+const Burguer = document.querySelector('.burguer-menu');
+const nav = document.querySelector('.nav-links');
+const navLinks = document.querySelectorAll('.nav-links li');
+const clickNav = document.querySelectorAll('.nav-links a[href^="#"]');
+const ScrollNav = document.querySelector('.about');
+const ContainerSpace = document.querySelector('.container-space');
+const ContainerProj = document.querySelector('.container-space-pj');
 const NumberInteractions = 7;
 const Seconds = 0.5;
+
 const Transition = (i,NumInt,Sc) => {
      return i / NumInt + Sc;
 }
+
+var ObjSections = {
+    AboutMe: document.querySelector('.about'),
+    Projects: document.querySelector('.container-space-pj'),
+    ContactMe: document.querySelector('.Container-contact')
+}
+
 const CalcTimeMov = 7 + 1.7;
+
+const ScrollView = () => {
+    let ScrollTop = document.documentElement.scrollTop;
+    let Bottom = ContainerSpace.offsetHeight / 2;
+    let IsOpacity = ScrollNav.style.opacity;
+    //console.log(`This is qty of scrollTop = ${ScrollTop} and this is qty of heigth relation on window and div About ${Bottom}`);
+    ScrollNav.style.opacity = IsOpacity == 1 ? 1 : ScrollTop >= Bottom ? 1 : 0; 
+    ScrollNav.classList.add('viewTop');
+}
+
 const GetSize = () => {
     let oWidth = document.documentElement.clientWidth;
     let oHeight = document.documentElement.clientHeight;
@@ -12,11 +37,8 @@ const GetSize = () => {
     //Resize.height = oHeight;
     console.log(content);
 }
-const navSlide = () => {
-    const Burguer = document.querySelector('.burguer-menu');
-    const nav = document.querySelector('.nav-links');
-    const navLinks = document.querySelectorAll('.nav-links li');
 
+const navSlide = () => { 
     Burguer.addEventListener('click', () => {
         nav.classList.toggle('nav-active');
         navLinks.forEach((item,index) => {
@@ -28,30 +50,34 @@ const navSlide = () => {
         Burguer.classList.toggle('toggle');
     });     
 }
-const oAlert = () => {
-    const Home = document.getElementById('link-Home');
-    Home.addEventListener('click',()=>{
-        alert("Home");
-    })
-    const About = document.getElementById('link-About');
-    About.addEventListener('click',()=>{
-        alert("About");
-    })
-    const Projcts = document.getElementById('link-Projects');
-    Projcts.addEventListener('click',()=>{
-        alert("Projects");
-    })
-    const ConctMe = document.getElementById('link-ContactMe');
-    ConctMe.addEventListener('click',()=>{
-        alert("Contact Me");
-    })    
-    //console.log(`Estas accediendo desde ${sendFor}`);
+
+const OnClick = () => {
+    clickNav.forEach(links => {
+        links.addEventListener('click',() => {
+            nav.classList.remove('nav-active');
+            Burguer.classList.remove('toggle');
+            navLinks.forEach((item,index) => {
+                item.style.animation = '';
+            });
+        });
+    });
 }
-window.addEventListener('load',() => {
+
+const OnLoad = () => {
     let Animation = document.getElementById('container-tittle-page');
-    let ObjAnimationPos = Animation.getBoundingClientRect().top;
-    console.log(ObjAnimationPos);
-})
-oAlert();
+    let Animatio2 = document.getElementById('Profile-Pic');
+    //let ObjAnimationPos = Animation.getBoundingClientRect().right;
+    //let SizeWindow = window.innerHeight;
+    //console.log(`${ObjAnimationPos} + ${SizeWindow}`);
+    Animation.style.animation = 'MoveItem 2s ease-out';
+    Animatio2.style.animation = 'MoveItemPic 2s ease-out';
+    ScrollNav.style.opacity = 0;
+}
+
+window.addEventListener('load',OnLoad)
+window.addEventListener('scroll',ScrollView)
+
 GetSize();
 navSlide();
+OnClick();
+console.log(ObjSections);
