@@ -80,4 +80,6 @@ window.addEventListener('scroll',ScrollView)
 GetSize();
 navSlide();
 OnClick();
-console.log(ObjSections);
+console.log(ObjSections.AboutMe);
+console.log(ObjSections.Projects);
+console.log(ObjSections.ContactMe);

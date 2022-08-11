@@ -113,7 +113,12 @@ nav{
 #content-pic-profiler>img {
     max-width: 50%;
  }
-
+ @media screen and (max-width:350px) {
+    body{
+        background-color: #fff;
+        opacity: 0;
+    }
+ }
  @media screen and (max-width:1024px) {
     .nav-links{
         width: 60%;
@@ -156,6 +161,13 @@ nav{
         flex-direction: column;
         align-items: center;
         justify-content: center;
+    }
+    #container-tittle-page{
+        width: 500px;
+        height: 500px;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        width: 100% !important;
     }
     #contenido-tittle-page{
         display: flex;
@@ -213,6 +225,8 @@ nav{
 .toggle .line3{
     transform: rotate(45deg) translate(-5px,-6px);
 }
+
+
 
 @keyframes MoveItem{
     0%{
