@@ -2,9 +2,17 @@ const Burguer = document.querySelector('.burguer-menu');
 const nav = document.querySelector('.nav-links');
 const navLinks = document.querySelectorAll('.nav-links li');
 const clickNav = document.querySelectorAll('.nav-links a[href^="#"]');
-const ScrollNav = document.querySelector('.about');
-const ContainerSpace = document.querySelector('.container-space');
+
+//This is div container about, usage to set and get opacity
+const ScrollNavAbout = document.querySelector('.about');
+
+//This is div container Home
+const ContainerSpace = document.querySelector('.container-space'); 
+//This is div container projects
 const ContainerProj = document.querySelector('.container-space-pj');
+//This is div container contact
+const ContainerContact = document.querySelector('.Container-contact');
+
 const NumberInteractions = 7;
 const Seconds = 0.5;
 
@@ -12,21 +20,31 @@ const Transition = (i,NumInt,Sc) => {
      return i / NumInt + Sc;
 }
 
-var ObjSections = {
-    AboutMe: document.querySelector('.about'),
-    Projects: document.querySelector('.container-space-pj'),
-    ContactMe: document.querySelector('.Container-contact')
-}
-
 const CalcTimeMov = 7 + 1.7;
 
 const ScrollView = () => {
-    let ScrollTop = document.documentElement.scrollTop;
-    let Bottom = ContainerSpace.offsetHeight / 2;
-    let IsOpacity = ScrollNav.style.opacity;
-    //console.log(`This is qty of scrollTop = ${ScrollTop} and this is qty of heigth relation on window and div About ${Bottom}`);
-    ScrollNav.style.opacity = IsOpacity == 1 ? 1 : ScrollTop >= Bottom ? 1 : 0; 
-    ScrollNav.classList.add('viewTop');
+    var ScrollTop = document.documentElement.scrollTop;
+    var Bottom = ContainerSpace.offsetHeight / 2;
+    var IsOpacity = ScrollNavAbout.style.opacity;
+    
+    //Visible About
+    ScrollNavAbout.style.opacity = IsOpacity == 1 ? 1 : ScrollTop >= Bottom ? 1 : 0; 
+    ScrollNavAbout.classList.add('viewTop');
+    IsOpacity = 0;
+    Bottom = 0;
+    //Visible Projects
+    Bottom = ScrollNavAbout.offsetHeight / 2;
+    IsOpacity = ContainerProj.style.opacity;
+    ContainerProj.style.opacity = IsOpacity == 1 ? 1 : ScrollTop >= Bottom ? 1 : 0;
+    ContainerProj.classList.add('viewTop');
+    IsOpacity = 0;
+    Bottom = 0;
+    //Visible Contact
+    Bottom = ContainerProj.offsetHeight / 2;
+    IsOpacity = ContainerContact.style.opacity;
+    ContainerContact.style.opacity = IsOpacity == 1 ? 1 : ScrollTop >= Bottom ? 1 : 0;
+    ContainerContact.classList.add('viewTop');
+    console.log(ScrollTop);
 }
 
 const GetSize = () => {
@@ -66,12 +84,11 @@ const OnClick = () => {
 const OnLoad = () => {
     let Animation = document.getElementById('container-tittle-page');
     let Animatio2 = document.getElementById('Profile-Pic');
-    //let ObjAnimationPos = Animation.getBoundingClientRect().right;
-    //let SizeWindow = window.innerHeight;
-    //console.log(`${ObjAnimationPos} + ${SizeWindow}`);
     Animation.style.animation = 'MoveItem 2s ease-out';
     Animatio2.style.animation = 'MoveItemPic 2s ease-out';
-    ScrollNav.style.opacity = 0;
+    ScrollNavAbout.style.opacity = 0;
+    ContainerProj.style.opacity = 0;
+    ContainerContact.style.opacity = 0;
 }
 
 window.addEventListener('load',OnLoad)
@@ -80,6 +97,7 @@ window.addEventListener('scroll',ScrollView)
 GetSize();
 navSlide();
 OnClick();
-console.log(ObjSections.AboutMe);
-console.log(ObjSections.Projects);
-console.log(ObjSections.ContactMe);
+
+//console.log(ObjSections.AboutMe);
+//console.log(ObjSections.Projects);
+//console.log(ObjSections.ContactMe);
