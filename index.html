@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Styles/style.css" type="text/css" media="all">
-    <link rel="stylesheet" href="./Styles/style_sass.scss" type="text/css" media="all">
+    <!--link rel="stylesheet" href="./Styles/style_sass.scss" type="text/css" media="all"-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
 </head>
 
 <body class="body-page" onload="GetSize();" onresize="GetSize();">
-    <nav>
+    <nav id="link-nav">
         <div class="logo"></div>
         <ul class="nav-links">
             <li><a href="#Home" id="link-Home">Home</a></li>
@@ -42,8 +42,8 @@
                 <div id="Profile-Pic" class="content-pic-profile">
                     <img src="./Images/sami-edit(1).png">
                 </div>
+                <div class="arrow-nav"></div>
             </div>
-        </div>
         </div>
     </section>
     <section id="About" class="About">
@@ -126,34 +126,39 @@
     </section>
     <section class="Contact-me">
         <div class="container-contact">
-        <div class="tittle-contact">
-          <h1 class="tittle-contact">Hello, i'm a contact form, if you wish, fill in the elements to contact me, thanks</h1>
+            <div class="tittle-contact">
+                <h1 class="tittle-contact">Hello, i'm a contact form, if you wish, fill in the elements to contact me,
+                    thanks</h1>
+            </div>
+            <div id="Container-contact" class="Form-send Container-contact">
+                <form id="Contact-me" action="https://formsubmit.co/sgomezp.dev@gmail.com" onsubmit="" method="POST">
+                    <div class="Form-container-send">
+                        <div class="cont-position">
+                            <input type="text" id="name" class="text name" placeholder=" " required name="name">
+                            <label class="lb" for="Name">Name:</label>
+                        </div>
+                        <div class="cont-position">
+                            <input type="email" id="email" class="text email" placeholder=" " required name="email">
+                            <label class="lb" for="Email">Email:</label>
+                        </div>
+                        <div class="cont-position">
+                            <input type="text" id="company" class="text company" placeholder=" " required
+                                name="company">
+                            <label class="lb" for="Company">Company:</label>
+                        </div>
+                        <div class="cont-position">
+                            <input type="text" id="coments" class="text coments" placeholder=" " name="coments">
+                            <label class="lb" for="Coments">Coments:</label>
+                        </div>
+                        <input class="button-send" type="submit" value="Send">
+                    </div>
+                </form>
+            </div>
         </div>
-        <div id="Container-contact" class="Form-send Container-contact">
-            <form id="Contact-me" action="https://formsubmit.co/sgomezp.dev@gmail.com" onsubmit="" method="POST">
-                <div class="Form-container-send">
-                    <div class="cont-position">
-                        <input type="text" id="name" class="text name" placeholder=" " required name="name">
-                        <label class="lb" for="Name">Name:</label>
-                    </div>
-                    <div class="cont-position">
-                        <input type="email" id="email" class="text email" placeholder=" " required name="email">
-                        <label class="lb" for="Email">Email:</label>
-                    </div>
-                    <div class="cont-position">
-                        <input type="text" id="company" class="text company" placeholder=" " required name="company">
-                        <label class="lb" for="Company">Company:</label>
-                    </div>
-                    <div class="cont-position">
-                        <input type="text" id="coments" class="text coments" placeholder=" " name="coments">
-                        <label class="lb" for="Coments">Coments:</label>
-                    </div>
-                    <input class="button-send" type="submit" value="Send">
-                </div>
-            </form>
-        </div>
-    </div>
     </section>
+    <div class="btn-start">
+        <a href="#link-nav" class="btn-start-position">^</a>
+    </div>
     <footer class="footer">
         <div class="container">
             <p>Website developed by @dev.sami_gomez</p>
