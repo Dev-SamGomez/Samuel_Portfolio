@@ -86,9 +86,9 @@ const OnClick = () => {
 
 const OnLoad = () => {
     let Animation = document.getElementById('container-tittle-page');
-    let Animatio2 = document.getElementById('Profile-Pic');
+   // let Animatio2 = document.getElementById('Profile-Pic');
     Animation.style.animation = 'MoveItem 2s ease-out';
-    Animatio2.style.animation = 'MoveItemPic 2s ease-out';
+   // Animatio2.style.animation = 'MoveItemPic 2s ease-out';
     ScrollNavAbout.style.opacity = 0;
     ContainerProj.style.opacity = 0;
     ContainerContact.style.opacity = 0;
