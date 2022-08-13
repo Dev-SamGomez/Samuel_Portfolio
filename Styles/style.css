@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #e6ebff;
+    background-color:/*#c1cbf781*/ #e6ebff;
 }
 
 html {
@@ -17,7 +17,7 @@ html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #282D3C
+    background-color:#282D3C/*#002233*/
         /*rgb(41, 41, 41)*/
     ;
 }
@@ -516,7 +516,7 @@ nav {
     color: #ffffff;
     border-radius: 5px;
     background-color: #282D3C;
-    padding: 10px 7px;
+    padding: 7px 7px;
     text-decoration: none;
     position: fixed;
     bottom: 40px;
@@ -527,8 +527,7 @@ nav {
 }
 
 .btn-start-position:hover {
-    background-color: #0016dbb6;
-    /* Color de fondo al pasar el cursor */
+    background-color: #2c313fc9;
     box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
     transform: translateY(-7px);
 }
