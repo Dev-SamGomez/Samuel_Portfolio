@@ -3,6 +3,9 @@ const nav = document.querySelector('.nav-links');
 const navLinks = document.querySelectorAll('.nav-links li');
 const clickNav = document.querySelectorAll('.nav-links a[href^="#"]');
 
+
+const oParallax = document.getElementById('container-general');
+
 const ScrollBtn = document.querySelector('.btn-start').style;
 
 //This is div container about, usage to set and get opacity
@@ -25,6 +28,7 @@ const Transition = (i, NumInt, Sc) => {
 const CalcTimeMov = 7 + 1.7;
 
 const ScrollView = () => {
+    oParallax.style.animation = '';
     var ScrollTop = document.documentElement.scrollTop;
     var Bottom = ContainerSpace.offsetHeight / 2;
     var IsOpacity = ScrollNavAbout.style.opacity;
@@ -88,15 +92,24 @@ const OnLoad = () => {
     let Animation = document.getElementById('container-tittle-page');
    // let Animatio2 = document.getElementById('Profile-Pic');
     Animation.style.animation = 'MoveItem 2s ease-out';
+    oParallax.style.animation = 'MoveItemStart 2s ease-out';
    // Animatio2.style.animation = 'MoveItemPic 2s ease-out';
     ScrollNavAbout.style.opacity = 0;
     ContainerProj.style.opacity = 0;
     ContainerContact.style.opacity = 0;
     ScrollBtn.opacity = 0;
+    
 }
 
+const ParallaxEffect = () => {
+    var ScrollTop = document.documentElement.scrollTop;
+    var oParallax = document.querySelector('.container-general');
+    oParallax.style.transform = ScrollTop * -0.8 == 0 ? '' : `translateY(${ScrollTop * -0.8}px)`;
+   // console.log(`Hi i'm scroll view parallax ${ScrollTop * -0.8}`);
+}
 window.addEventListener('load', OnLoad)
 window.addEventListener('scroll', ScrollView)
+window.addEventListener('scroll', ParallaxEffect)
 
 GetSize();
 navSlide();

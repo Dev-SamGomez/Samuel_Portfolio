@@ -82,6 +82,7 @@ nav {
     display: block;
     margin: 0;
     padding: 0;
+    z-index: -1;
 }
 
 #container-tittle-page {
@@ -163,7 +164,7 @@ nav {
     .nav-links {
         position: absolute;
         right: 0px;
-        height: 92vh;
+        height: 62vh;
         top: 8vh;
         background-color: #0E2038;
         display: none;
@@ -242,8 +243,10 @@ nav {
     }
 
     .tittle-contact>h1 {
+        margin-top: 260px;
         line-height: 1.5em;
         text-align: center;
+        color: #ffffff;
     }
 
     .container-contact {
@@ -313,6 +316,14 @@ nav {
         transform: translate(100%);
     }
 }
+
+@keyframes MoveItemStart {
+    0% {
+        transform: translateY(10%);
+        transform: translateY(-10%);
+    }
+}
+
 
 .container-about {
     display: flex;
@@ -473,13 +484,23 @@ nav {
     text-align: center;
     display: grid;
     align-items: center;
+    justify-content: center;
 }
 
 .tittle-contact>h1 {
+    display: block;
     line-height: 1.5em;
     text-align: center;
+    color: #ffffff;
 }
 
+.Contact-me{    
+    background-image:linear-gradient(rgba(0, 0, 0, 0.377),rgba(0,0,0,0.377)), url('../Images/MyOffice.jpeg');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    margin: 0 auto;
+}
 .container-contact {
     margin: 5%;
     display: flex;
@@ -487,7 +508,9 @@ nav {
     align-items: center;
     justify-content: center;
 }
-
+form{
+   margin: 300px 0;
+}
 .btn-start {
     position: absolute;
     background-image: url(../Images/icons8-arriba-en-cuadrado-40.png);
