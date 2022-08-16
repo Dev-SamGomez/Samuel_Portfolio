@@ -106,6 +106,17 @@ const ParallaxEffect = () => {
     var oParallax = document.querySelector('.container-general');
     oParallax.style.transform = ScrollTop * -0.8 == 0 ? '' : `translateY(${ScrollTop * -0.8}px)`;
    // console.log(`Hi i'm scroll view parallax ${ScrollTop * -0.8}`);
+   let element = document.querySelector('.nav-links li');
+   let elementStyle = window.getComputedStyle(element);
+   let elementColor = elementStyle.getPropertyValue('opacity');
+   console.log(`Style burguer ${elementColor}`);
+   if (elementColor == 1 && ScrollTop > 100){
+    nav.classList.remove('nav-active');
+    Burguer.classList.remove('toggle');
+    navLinks.forEach((item) => {
+        item.style.animation = '';
+    });
+   }
 }
 window.addEventListener('load', OnLoad)
 window.addEventListener('scroll', ScrollView)
