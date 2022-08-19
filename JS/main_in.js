@@ -90,33 +90,34 @@ const OnClick = () => {
 
 const OnLoad = () => {
     let Animation = document.getElementById('container-tittle-page');
-   // let Animatio2 = document.getElementById('Profile-Pic');
+    // let Animatio2 = document.getElementById('Profile-Pic');
     Animation.style.animation = 'MoveItem 2s ease-out';
     oParallax.style.animation = 'MoveItemStart 2s ease-out';
-   // Animatio2.style.animation = 'MoveItemPic 2s ease-out';
+    // Animatio2.style.animation = 'MoveItemPic 2s ease-out';
     ScrollNavAbout.style.opacity = 0;
     ContainerProj.style.opacity = 0;
     ContainerContact.style.opacity = 0;
     ScrollBtn.opacity = 0;
-    
+
 }
 
 const ParallaxEffect = () => {
     var ScrollTop = document.documentElement.scrollTop;
     var oParallax = document.querySelector('.container-general');
     oParallax.style.transform = ScrollTop * -0.8 == 0 ? '' : `translateY(${ScrollTop * -0.8}px)`;
-   // console.log(`Hi i'm scroll view parallax ${ScrollTop * -0.8}`);
-   let element = document.querySelector('.nav-links li');
-   let elementStyle = window.getComputedStyle(element);
-   let elementColor = elementStyle.getPropertyValue('opacity');
-   console.log(`Style burguer ${elementColor}`);
-   if (elementColor == 1 && ScrollTop > 100){
-    nav.classList.remove('nav-active');
-    Burguer.classList.remove('toggle');
-    navLinks.forEach((item) => {
-        item.style.animation = '';
-    });
-   }
+    // console.log(`Hi i'm scroll view parallax ${ScrollTop * -0.8}`);
+
+    let element = document.querySelector('.nav-links li');
+    let elementStyle = window.getComputedStyle(element);
+    let elementColor = elementStyle.getPropertyValue('opacity');
+    //console.log(`Style burguer ${elementColor}`);
+    if (elementColor == 1 && ScrollTop > 100) {
+        nav.classList.remove('nav-active');
+        Burguer.classList.remove('toggle');
+        navLinks.forEach((item) => {
+            item.style.animation = '';
+        });
+    }
 }
 window.addEventListener('load', OnLoad)
 window.addEventListener('scroll', ScrollView)
