@@ -13,17 +13,17 @@ html {
     scroll-behavior: smooth;
 }
 
--webkit-scrollbar{
+-webkit-scrollbar {
     width: 8px;
     height: 8px;
 }
 
--webkit-scrollbar-thumb{
+-webkit-scrollbar-thumb {
     background: #545454;
     border-radius: 50px;
 }
 
--webkit-scrollbar-track{
+-webkit-scrollbar-track {
     background: #303030;
 }
 
@@ -252,7 +252,7 @@ nav {
         display: block;
         cursor: pointer;
     }
-   
+
     .container-space {
         display: flex;
         flex-direction: column;
@@ -308,6 +308,18 @@ nav {
         border-radius: 1%;
         transition: all 0.5s;
         background-color: #0E2038;
+    }
+
+    .about-item-div {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+        background-color: #0E2038;
+        color: #000;
+    }
+
+    .about-item-p {
+        
     }
 
     .tittle-contact>h1 {
@@ -684,4 +696,3 @@ form {
     box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
     transform: translateY(-7px);
 }
-
