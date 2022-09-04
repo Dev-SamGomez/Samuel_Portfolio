@@ -9,7 +9,7 @@ const oParallax = document.getElementById('container-general');
 const ScrollBtn = document.querySelector('.btn-start').style;
 
 //This is div container about, usage to set and get opacity
-const ScrollNavAbout = document.querySelector('.about');
+const ScrollNavAbout = document.querySelector('.container-about');
 
 //This is div container Home
 const ContainerSpace = document.querySelector('.container-space');

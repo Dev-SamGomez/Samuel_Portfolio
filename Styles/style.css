@@ -207,6 +207,46 @@ nav {
     max-width: 50%;
 }
 
+.container-about {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.about {
+    width: 50%;
+    margin: 30px;
+    padding: 15px;
+    letter-spacing: 1px;
+    transition: all 0.5s;
+    background-color: #0E2038;
+}
+
+.Container-about-info>p {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+}
+
+.Container-about-info>ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.about-item-div {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    color: #000;
+}
+
+.about-item-p {
+    color: #000;
+}
+
 @media screen and (max-width:350px) {
     body {
         background-color: #fff;
@@ -301,26 +341,7 @@ nav {
         width: 100% !important;
         box-shadow: 0px 4px 3px rgba(0, 0, 0, 0);
         z-index: 1000;
-    }
-
-    .about {
-        border: 1px solid black;
-        border-radius: 1%;
-        transition: all 0.5s;
-        background-color: #0E2038;
-    }
-
-    .about-item-div {
-        width: 100%;
-        height: auto;
-        padding: 10px;
-        background-color: #0E2038;
-        color: #000;
-    }
-
-    .about-item-p {
-        
-    }
+    }      
 
     .tittle-contact>h1 {
         margin-top: 260px;
@@ -349,6 +370,13 @@ nav {
         padding: 12px 20px;
         bottom: 20px;
         right: 20px;
+    }
+
+    .container-about {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 }
 
@@ -405,37 +433,6 @@ nav {
 }
 
 
-.container-about {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-
-.about {
-    width: 50%;
-    margin: 30px;
-    padding: 15px;
-    letter-spacing: 1px;
-    border: 1px solid black;
-    border-radius: 1%;
-    transition: all 0.5s;
-    background-color: #0E2038;
-}
-
-.Container-about-info>p {
-    width: 100%;
-    height: auto;
-    padding: 10px;
-}
-
-.Container-about-info>ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-}
 
 .signature {
     font-weight: bold;
