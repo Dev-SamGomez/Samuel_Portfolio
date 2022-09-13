@@ -13,19 +13,6 @@ html {
     scroll-behavior: smooth;
 }
 
--webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-}
-
--webkit-scrollbar-thumb {
-    background: #545454;
-    border-radius: 50px;
-}
-
--webkit-scrollbar-track {
-    background: #303030;
-}
 
 .general-position-top {
     margin: 0;
@@ -185,8 +172,7 @@ nav {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 600px;
-    max-height: 600px;
+    height: 92vh;
 }
 
 .content-pic-profile {
