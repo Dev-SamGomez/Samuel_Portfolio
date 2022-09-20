@@ -207,6 +207,7 @@ nav {
     letter-spacing: 1px;
     transition: all 0.5s;
     background-color: #0E2038;
+    box-shadow: 7px 17px 17px #000;
 }
 
 .Container-about-info>p {
@@ -232,7 +233,25 @@ nav {
 .about-item-p {
     color: #000;
 }
-
+.proyect-tittle {
+    width: 50%;
+    margin: 30px;
+    padding: 15px;
+    letter-spacing: 1px;
+    transition: all 0.5s;
+    background-color: #0E2038;
+    box-shadow: 7px 17px 17px #000;
+    color: #fff;
+}
+.container-space-pj{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.reducedsize{
+    width: 400px;
+    max-width: 400px;    
+}
 @media screen and (max-width:350px) {
     body {
         background-color: #fff;
