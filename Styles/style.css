@@ -207,7 +207,7 @@ nav {
     letter-spacing: 1px;
     transition: all 0.5s;
     background-color: #0E2038;
-    box-shadow: 7px 17px 17px #000;
+    box-shadow: 2px 20px 25px 2px #000;
 }
 
 .Container-about-info>p {
@@ -216,6 +216,7 @@ nav {
     padding: 10px;
 }
 
+/*
 .Container-about-info>ul {
     display: flex;
     flex-direction: column;
@@ -223,6 +224,7 @@ nav {
     justify-content: center;
 
 }
+*/
 .about-item-div {
     width: 100%;
     height: auto;
@@ -233,6 +235,7 @@ nav {
 .about-item-p {
     color: #000;
 }
+
 .proyect-tittle {
     width: 50%;
     margin: 30px;
@@ -240,18 +243,180 @@ nav {
     letter-spacing: 1px;
     transition: all 0.5s;
     background-color: #0E2038;
-    box-shadow: 7px 17px 17px #000;
+    box-shadow: 2px 20px 25px 2px #000;
     color: #fff;
 }
-.container-space-pj{
+
+.container-space-pj {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.reducedsize{
-    width: 400px;
-    max-width: 400px;    
+
+.container-modal-proyects {
+    margin: 30px;
+    margin-top: 15px;
+    padding: 15px;
+    padding-top: 5px;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: grid;
+    justify-content: space-between;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
 }
+
+.window-pj-modal {
+    /*border: 1px solid #000;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 300px;
+    margin-bottom: 10%;
+    position: relative;
+}
+
+.window-pj-modal button {
+    border: 0px;
+    position: absolute;
+    cursor: pointer;
+    bottom: 0px;
+    margin: 0;
+    padding: 0;
+    height: 50px;
+    width: 300px;
+    background-color: #0E2038;
+}
+
+.Pj1 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.377), rgba(0, 0, 0, 0.377)), url('../Images/Me.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+.Pj2 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.377), rgba(0, 0, 0, 0.377)), url('../Images/Me.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+.Pj3 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.377), rgba(0, 0, 0, 0.377)), url('../Images/Me.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+.Pj4 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.377), rgba(0, 0, 0, 0.377)), url('../Images/Me.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+.Pj5 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.377), rgba(0, 0, 0, 0.377)), url('../Images/Me.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+.Pj6 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.377), rgba(0, 0, 0, 0.377)), url('../Images/Me.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+.Pj7 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.377), rgba(0, 0, 0, 0.377)), url('../Images/Me.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+.Pj8 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.377), rgba(0, 0, 0, 0.377)), url('../Images/Me.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+.window-pj-modal:hover,.window-pj-modal:hover h4{
+    transform: scale(1.1);
+    transition: all 600ms ease;
+    box-shadow: 2px 20px 40px 2px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    font-size: 14px;
+    opacity: 1;
+    filter: blur(0px);
+    color: #fff;
+    transition: all 600ms ease;
+}
+
+.window-pj-modal button:hover,
+.window-pj-modal h4 {
+    opacity: 0.9;
+    filter: blur(0px);
+    color: #fff;
+    transition: all 600ms ease;
+}
+
+.window-pj-modal h4 {
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #fff;
+    position: absolute;
+    bottom: 50px;
+    filter: blur(5px);
+    opacity: 0;
+    cursor: pointer;
+}
+/*Modal*/
+.Window-Modal{
+    position: absolute;
+    display: none;
+    background: rgba(0, 0, 0, 0.6);
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    position: fixed;
+    padding: 28px;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+.container-modal{
+    background:#e6ebff;
+    min-width: 400px;
+    max-width: 90%;
+    min-height: 300px;
+    max-height: 90%;
+    padding: 20px;
+    border-radius: 15px;
+    position: relative;
+    /*overflow: auto;*/
+    height: 500px;
+    width: 1000px;
+}
+.closeModal{
+    background: #000;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color:#fff ;
+    font-size: 1.3rem;
+    border-radius: 50%;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    cursor: pointer;
+}
+.closeModal img{
+    margin-right: 0px;
+    width: 20px;
+    font-size: 20px;    
+    position: relative;
+}
+.reducedsize {
+    width: 400px;
+    max-width: 400px;
+}
+
 @media screen and (max-width:350px) {
     body {
         background-color: #fff;
@@ -346,7 +511,7 @@ nav {
         width: 100% !important;
         box-shadow: 0px 4px 3px rgba(0, 0, 0, 0);
         z-index: 1000;
-    }      
+    }
 
     .tittle-contact>h1 {
         margin-top: 260px;
@@ -382,6 +547,23 @@ nav {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+    }
+
+    .window-pj-modal {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container-modal-proyects {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .proyect-tittle {
+        width: 100%;
     }
 }
 
@@ -457,6 +639,7 @@ nav {
 
 #About {
     color: #fff;
+    margin-bottom: 5%;
 }
 
 .tittle-section {
@@ -674,7 +857,7 @@ form {
 
 .btn-start {
     position: absolute;
-    background-image: url(../Images/icons8-arriba-en-cuadrado-40.png);
+    background-image: url('../Images/icons8-arriba-en-cuadrado-40.png');
 }
 
 .btn-start-position {
@@ -698,13 +881,16 @@ form {
     box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
     transform: translateY(-7px);
 }
-.proyect-tittle{
+
+.proyect-tittle {
     padding: 1rem;
 }
-.proyect-tittle h2{
-text-align: center;
+
+.proyect-tittle h2 {
+    text-align: center;
 }
-.proyect-tittle hr{
+
+.proyect-tittle hr {
     border: none;
     height: 1px;
     background-color: #282d3cd2;

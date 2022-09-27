@@ -3,6 +3,19 @@ const nav = document.querySelector('.nav-links');
 const navLinks = document.querySelectorAll('.nav-links li');
 const clickNav = document.querySelectorAll('.nav-links a[href^="#"]');
 
+//Modal
+const ModalWind = document.querySelector('#ModalView');
+const ModalButtons = document.querySelector('.closeModal');
+
+//Buttons Active Modal
+const btn1 = document.getElementById('btn1');
+const btn2 = document.getElementById('btn2');
+const btn3 = document.getElementById('btn3');
+const btn4 = document.getElementById('btn4');
+const btn5 = document.getElementById('btn5');
+const btn6 = document.getElementById('btn6');
+const btn7 = document.getElementById('btn7');
+const btn8 = document.getElementById('btn8');
 
 const oParallax = document.getElementById('container-general');
 
@@ -50,7 +63,7 @@ const ScrollView = () => {
     IsOpacity = ContainerContact.style.opacity;
     ContainerContact.style.opacity = IsOpacity == 1 ? 1 : ScrollTop >= Bottom ? 1 : 0;
     ContainerContact.classList.add('viewTop');
-    console.log(ScrollTop);
+    //console.log(ScrollTop);
     ScrollTop > 400 ? ScrollBtn.opacity = 1 : ScrollBtn.opacity = 0;
 }
 
@@ -59,8 +72,7 @@ const GetSize = () => {
     let oHeight = document.documentElement.clientHeight;
     let content = `Width: ${oWidth} and Height: ${oHeight}`;
     let Resize = document.getElementById("SetGetElements").style;
-    //Resize.height = oHeight;
-    console.log(content);
+    //console.log(content);
 }
 
 const navSlide = () => {
@@ -70,13 +82,12 @@ const navSlide = () => {
             item.style.animation ?
                 item.style.animation = '' :
                 item.style.animation = `navLinkMovements 0.5s ease forwards ${Transition(index,NumberInteractions,Seconds)}s`;
-            //console.log(index / CalcTimeMov);
         });
         Burguer.classList.toggle('toggle');
     });
 }
 
-const OnClick = () => {
+const OnClickList = () => {
     clickNav.forEach(links => {
         links.addEventListener('click', () => {
             nav.classList.remove('nav-active');
@@ -90,10 +101,8 @@ const OnClick = () => {
 
 const OnLoad = () => {
     let Animation = document.getElementById('container-tittle-page');
-    // let Animatio2 = document.getElementById('Profile-Pic');
     Animation.style.animation = 'MoveItem 2s ease-out';
     oParallax.style.animation = 'MoveItemStart 2s ease-out';
-    // Animatio2.style.animation = 'MoveItemPic 2s ease-out';
     ScrollNavAbout.style.opacity = 0;
     ContainerProj.style.opacity = 0;
     ContainerContact.style.opacity = 0;
@@ -119,14 +128,64 @@ const ParallaxEffect = () => {
         });
     }
 }
+
+function ModalViewProject(id) {
+    ModalWind.style.display = 'flex';
+    queryGithubAPI().then(repos => {
+        //console.log(repos[id].name);
+        document.getElementById('Insert-Tittle').innerHTML = repos[id].name;
+    });
+}
+
+const Close_Modal_Window = () => {
+    ModalButtons.addEventListener('click', () => ModalWind.style.display = 'none');
+}
+
+const CheckOutModal = () => {
+    ModalWind.onclick = (e) => {
+        ModalWind.style.display = e.target == ModalWind ? 'none' : ModalWind.style.display;
+    }
+}
+
+//API Try
+
+function queryGithubAPI(){
+   return fetch(`https://api.github.com/users/Dev-SamGomez/repos`) 
+   .then(response => response.json());
+}
+
+//
+
 window.addEventListener('load', OnLoad)
 window.addEventListener('scroll', ScrollView)
 window.addEventListener('scroll', ParallaxEffect)
 
-GetSize();
-navSlide();
-OnClick();
+btn1.addEventListener('click', () =>{
+    ModalViewProject(9);
+});
+btn2.addEventListener('click', () =>{
+    ModalViewProject(1);
+});
+btn3.addEventListener('click', () =>{
+    ModalViewProject(1);
+});
+btn4.addEventListener('click', () =>{
+    ModalViewProject(1);
+});
+btn5.addEventListener('click', () =>{
+    ModalViewProject(1);
+});
+btn6.addEventListener('click', () =>{
+    ModalViewProject(1);
+});
+btn7.addEventListener('click', () =>{
+    ModalViewProject(1);
+});
+btn8.addEventListener('click', () =>{
+    ModalViewProject(1);
+});
 
-//console.log(ObjSections.AboutMe);
-//console.log(ObjSections.Projects);
-//console.log(ObjSections.ContactMe);
+navSlide();
+OnClickList();
+Close_Modal_Window();
+CheckOutModal();
