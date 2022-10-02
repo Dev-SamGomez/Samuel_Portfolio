@@ -10,12 +10,8 @@ const ModalButtons = document.querySelector('.closeModal');
 //Buttons Active Modal
 const btn1 = document.getElementById('btn1');
 const btn2 = document.getElementById('btn2');
-const btn3 = document.getElementById('btn3');
-const btn4 = document.getElementById('btn4');
-const btn5 = document.getElementById('btn5');
-const btn6 = document.getElementById('btn6');
-const btn7 = document.getElementById('btn7');
-const btn8 = document.getElementById('btn8');
+const btnRepo = document.getElementById('btnRepo');
+let idRepo = 0;
 
 const oParallax = document.getElementById('container-general');
 
@@ -63,7 +59,6 @@ const ScrollView = () => {
     IsOpacity = ContainerContact.style.opacity;
     ContainerContact.style.opacity = IsOpacity == 1 ? 1 : ScrollTop >= Bottom ? 1 : 0;
     ContainerContact.classList.add('viewTop');
-    //console.log(ScrollTop);
     ScrollTop > 400 ? ScrollBtn.opacity = 1 : ScrollBtn.opacity = 0;
 }
 
@@ -72,7 +67,6 @@ const GetSize = () => {
     let oHeight = document.documentElement.clientHeight;
     let content = `Width: ${oWidth} and Height: ${oHeight}`;
     let Resize = document.getElementById("SetGetElements").style;
-    //console.log(content);
 }
 
 const navSlide = () => {
@@ -114,12 +108,9 @@ const ParallaxEffect = () => {
     var ScrollTop = document.documentElement.scrollTop;
     var oParallax = document.querySelector('.container-general');
     oParallax.style.transform = ScrollTop * -0.8 == 0 ? '' : `translateY(${ScrollTop * -0.8}px)`;
-    // console.log(`Hi i'm scroll view parallax ${ScrollTop * -0.8}`);
-
     let element = document.querySelector('.nav-links li');
     let elementStyle = window.getComputedStyle(element);
     let elementColor = elementStyle.getPropertyValue('opacity');
-    //console.log(`Style burguer ${elementColor}`);
     if (elementColor == 1 && ScrollTop > 100) {
         nav.classList.remove('nav-active');
         Burguer.classList.remove('toggle');
@@ -129,11 +120,22 @@ const ParallaxEffect = () => {
     }
 }
 
+function VisitRepo() {
+    btnRepo.addEventListener('click', () => {
+        queryGithubAPI().then(repos => {
+            window.open(repos[idRepo].html_url, '_blank');
+        });
+    });    
+} 
+
 function ModalViewProject(id) {
     ModalWind.style.display = 'flex';
     queryGithubAPI().then(repos => {
-        //console.log(repos[id].name);
         document.getElementById('Insert-Tittle').innerHTML = repos[id].name;
+        document.getElementById('Insert-Description').innerHTML = repos[id].description;
+        document.getElementById('starts').innerHTML = `${repos[id].stargazers_count} Starts`;
+        document.getElementById('watch').innerHTML = `${repos[id].watchers} Watching`;
+        document.getElementById('forks').innerHTML = `${repos[id].forks_count} Forks`;
     });
 }
 
@@ -150,7 +152,7 @@ const CheckOutModal = () => {
 //API Try
 
 function queryGithubAPI(){
-   return fetch(`https://api.github.com/users/Dev-SamGomez/repos`) 
+   return fetch('https://api.github.com/users/Dev-SamGomez/repos') 
    .then(response => response.json());
 }
 
@@ -161,31 +163,16 @@ window.addEventListener('scroll', ScrollView)
 window.addEventListener('scroll', ParallaxEffect)
 
 btn1.addEventListener('click', () =>{
-    ModalViewProject(9);
+    ModalViewProject(9);    
+    idRepo = 9;
 });
 btn2.addEventListener('click', () =>{
     ModalViewProject(1);
-});
-btn3.addEventListener('click', () =>{
-    ModalViewProject(1);
-});
-btn4.addEventListener('click', () =>{
-    ModalViewProject(1);
-});
-btn5.addEventListener('click', () =>{
-    ModalViewProject(1);
-});
-btn6.addEventListener('click', () =>{
-    ModalViewProject(1);
-});
-btn7.addEventListener('click', () =>{
-    ModalViewProject(1);
-});
-btn8.addEventListener('click', () =>{
-    ModalViewProject(1);
+    idRepo = 1;
 });
 
 navSlide();
 OnClickList();
 Close_Modal_Window();
 CheckOutModal();
+VisitRepo();
