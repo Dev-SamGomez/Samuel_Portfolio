@@ -163,11 +163,11 @@ window.addEventListener('scroll', ScrollView)
 window.addEventListener('scroll', ParallaxEffect)
 
 btn1.addEventListener('click', () =>{
-    ModalViewProject(9);    
+    ModalViewProject(1);    
     idRepo = 1;
 });
 btn2.addEventListener('click', () =>{
-    ModalViewProject(1);
+    ModalViewProject(0);
     idRepo = 0;
 });
 
