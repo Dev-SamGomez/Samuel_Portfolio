@@ -9,7 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!--script async defer src="https://buttons.github.io/buttons.js"></script-->
+    <script defer src="./JS/ConexionAPI.js"></script>
     <title>Welcome to my Portfolio</title>
 </head>
 
@@ -17,7 +18,7 @@
     <nav id="link-nav">
         <div class="logo"></div>
         <ul class="nav-links">
-            <li><a href="#Home" id="link-Home">Home</a></li>
+            <!--li><a href="#Home" id="link-Home">Home</a></li-->
             <li><a href="#About" id="link-About">About Me</a></li>
             <li><a href="#Projects" id="link-Projects">Projects</a></li>
             <li><a href="#Contact-me" id="link-ContactMe">Contact Me</a></li>
@@ -71,13 +72,7 @@
                 <h2 class="">Proyects</h2>
             </div>
         </div>
-        <div class="container-modal-proyects">
-            <div class="window-pj-modal Pj1">
-                <h4>This Portfolio</h4><button id="btn1"></button>
-            </div>
-            <div class="window-pj-modal Pj2">
-                <h4>Project #1</h4><button id="btn2"></button>
-            </div>
+        <div id="Insert-Btns" class="container-modal-proyects">            
         </div>
     </section>
     <section id="Contact-me" class="Contact-me">
@@ -124,24 +119,24 @@
                 <input type="radio" id="3" name="image-slide" hidden />
                 <div class="slide">
                     <div class="item-slide">
-                        <img src="./Images/Principal.JPG">
+                        <img src="./Images/Images-Repos/Principal.JPG">
                     </div>
                     <div class="item-slide">
-                        <img src="./Images/MyOffice3.jpeg">
+                        <img src="./Images/Images-Repos/MyOffice3.jpeg">
                     </div>
                     <div class="item-slide">
-                        <img src="./Images/Me.jpeg">
+                        <img src="./Images/Images-Repos/Me.jpeg">
                     </div>
                 </div>
                 <div class="pagination">
                     <label class="pagination-item" for="1">
-                        <img src="./Images/Principal.JPG">
+                        <img src="./Images/Images-Repos/Principal.JPG">
                     </label>
                     <label class="pagination-item" for="2">
-                        <img src="./Images/MyOffice3.jpeg">
+                        <img src="./Images/Images-Repos/MyOffice3.jpeg">
                     </label>
                     <label class="pagination-item" for="3">
-                        <img src="./Images/Me.jpeg">
+                        <img src="./Images/Images-Repos/Me.jpeg">
                     </label>
                 </div>
             </div>

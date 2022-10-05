@@ -1,3 +1,10 @@
+const url_API = 'https://api.github.com/users/Dev-SamGomez/repos';
+
+function queryGithubAPI() {
+    return fetch(url_API)
+        .then(response => response.json());
+}
+
 const Burguer = document.querySelector('.burguer-menu');
 const nav = document.querySelector('.nav-links');
 const navLinks = document.querySelectorAll('.nav-links li');
@@ -8,8 +15,8 @@ const ModalWind = document.querySelector('#ModalView');
 const ModalButtons = document.querySelector('.closeModal');
 
 //Buttons Active Modal
+const btn0 = document.getElementById('btn0');
 const btn1 = document.getElementById('btn1');
-const btn2 = document.getElementById('btn2');
 const btnRepo = document.getElementById('btnRepo');
 let idRepo = 0;
 
@@ -62,12 +69,12 @@ const ScrollView = () => {
     ScrollTop > 400 ? ScrollBtn.opacity = 1 : ScrollBtn.opacity = 0;
 }
 
-const GetSize = () => {
+/* const GetSize = () => {
     let oWidth = document.documentElement.clientWidth;
     let oHeight = document.documentElement.clientHeight;
     let content = `Width: ${oWidth} and Height: ${oHeight}`;
     let Resize = document.getElementById("SetGetElements").style;
-}
+} */
 
 const navSlide = () => {
     Burguer.addEventListener('click', () => {
@@ -122,21 +129,26 @@ const ParallaxEffect = () => {
 
 function VisitRepo() {
     btnRepo.addEventListener('click', () => {
-        queryGithubAPI().then(repos => {
-            window.open(repos[idRepo].html_url, '_blank');
-        });
-    });    
-} 
+        queryGithubAPI()
+            .then(repos => {
+                window.open(repos[idRepo].html_url, '_blank');
+            })
+            .catch(err => console.error(err));
+    });
+}
 
 function ModalViewProject(id) {
     ModalWind.style.display = 'flex';
-    queryGithubAPI().then(repos => {
-        document.getElementById('Insert-Tittle').innerHTML = repos[id].name;
-        document.getElementById('Insert-Description').innerHTML = repos[id].description;
-        document.getElementById('starts').innerHTML = `${repos[id].stargazers_count} Starts`;
-        document.getElementById('watch').innerHTML = `${repos[id].watchers} Watching`;
-        document.getElementById('forks').innerHTML = `${repos[id].forks_count} Forks`;
-    });
+    queryGithubAPI()
+        .then(repos => {
+            document.getElementById('Insert-Tittle').innerHTML = repos[id].name;
+            document.getElementById('Insert-Description').innerHTML = repos[id].description;
+            document.getElementById('starts').innerHTML = `${repos[id].stargazers_count} Starts`;
+            document.getElementById('watch').innerHTML = `${repos[id].watchers} Watching`;
+            document.getElementById('forks').innerHTML = `${repos[id].forks_count} Forks`;
+            idRepo = id;
+        })
+        .catch(err => console.error(err));
 }
 
 const Close_Modal_Window = () => {
@@ -149,27 +161,9 @@ const CheckOutModal = () => {
     }
 }
 
-//API Try
-
-function queryGithubAPI(){
-   return fetch('https://api.github.com/users/Dev-SamGomez/repos') 
-   .then(response => response.json());
-}
-
-//
-
 window.addEventListener('load', OnLoad)
 window.addEventListener('scroll', ScrollView)
 window.addEventListener('scroll', ParallaxEffect)
-
-btn1.addEventListener('click', () =>{
-    ModalViewProject(1);    
-    idRepo = 1;
-});
-btn2.addEventListener('click', () =>{
-    ModalViewProject(0);
-    idRepo = 0;
-});
 
 navSlide();
 OnClickList();
