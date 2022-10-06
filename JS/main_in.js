@@ -37,6 +37,13 @@ const ContainerContact = document.querySelector('.Container-contact');
 const NumberInteractions = 7;
 const Seconds = 0.5;
 
+//This will be for the modal carousel input 
+const objImputs = {
+    imput1: document.getElementById('1'),
+    imput2: document.getElementById('2'),
+    imput3: document.getElementById('3')
+}
+
 const Transition = (i, NumInt, Sc) => {
     return i / NumInt + Sc;
 }
@@ -161,6 +168,27 @@ const CheckOutModal = () => {
     }
 }
 
+const ClickImputsModal = () => {
+    Object.entries(objImputs)
+        .forEach(key => {
+            key.map((vl, id) => {
+                if (id == 1) {
+                    vl.addEventListener('click', () => {
+                        console.log(vl);
+                        setTimeout(() => {
+                            document.querySelector('.slide').style.animationName = 'autoplay';
+                            document.querySelector('.slide').style.animationDuration = '6.5s';
+                            document.querySelector('.slide').style.animationDirection = 'alternate';
+                            document.querySelector('.slide').style.animationFillMode = 'forwards';
+                            document.querySelector('.slide').style.animationIterationCount = 'infinite';
+                            document.querySelector('.slide').style.animationObjectFit = 'cover';
+                        }, 10000);
+                    });
+                }
+            });
+        });
+}
+
 window.addEventListener('load', OnLoad)
 window.addEventListener('scroll', ScrollView)
 window.addEventListener('scroll', ParallaxEffect)
@@ -170,3 +198,4 @@ OnClickList();
 Close_Modal_Window();
 CheckOutModal();
 VisitRepo();
+ClickImputsModal();
