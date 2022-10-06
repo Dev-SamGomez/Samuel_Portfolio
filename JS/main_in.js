@@ -174,7 +174,8 @@ const ClickImputsModal = () => {
             key.map((vl, id) => {
                 if (id == 1) {
                     vl.addEventListener('click', () => {
-                        console.log(vl);
+                        //console.log(vl);
+                        if (document.querySelector('.slide').style.animationName = 'none'){
                         setTimeout(() => {
                             document.querySelector('.slide').style.animationName = 'autoplay';
                             document.querySelector('.slide').style.animationDuration = '6.5s';
@@ -183,6 +184,7 @@ const ClickImputsModal = () => {
                             document.querySelector('.slide').style.animationIterationCount = 'infinite';
                             document.querySelector('.slide').style.animationObjectFit = 'cover';
                         }, 10000);
+                    }
                     });
                 }
             });
