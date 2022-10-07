@@ -147,9 +147,7 @@ function VisitRepo() {
 function ModalViewProject(id) {
     ModalWind.style.display = 'flex';
     var oParallax = document.querySelector('.container-modal');
-    /* oParallax.style.transform =  `translateY(${(ScrollTop * 2) / ScrollTop}px)`; */
     oParallax.classList.add('viewDown');
-    //oParallax.classList.add('viewDown2');
     queryGithubAPI()
         .then(repos => {
             document.getElementById('Insert-Tittle').innerHTML = repos[id].name;
