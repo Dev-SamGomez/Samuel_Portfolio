@@ -146,6 +146,10 @@ function VisitRepo() {
 
 function ModalViewProject(id) {
     ModalWind.style.display = 'flex';
+    var oParallax = document.querySelector('.container-modal');
+    /* oParallax.style.transform =  `translateY(${(ScrollTop * 2) / ScrollTop}px)`; */
+    oParallax.classList.add('viewDown');
+    //oParallax.classList.add('viewDown2');
     queryGithubAPI()
         .then(repos => {
             document.getElementById('Insert-Tittle').innerHTML = repos[id].name;
@@ -153,13 +157,22 @@ function ModalViewProject(id) {
             document.getElementById('starts').innerHTML = `${repos[id].stargazers_count} Starts`;
             document.getElementById('watch').innerHTML = `${repos[id].watchers} Watching`;
             document.getElementById('forks').innerHTML = `${repos[id].forks_count} Forks`;
+            document.querySelector('.slide').style.animationName = 'autoplay';
+            document.querySelector('.slide').style.animationDuration = '6.5s';
+            document.querySelector('.slide').style.animationDirection = 'alternate';
+            document.querySelector('.slide').style.animationFillMode = 'forwards';
+            document.querySelector('.slide').style.animationIterationCount = 'infinite';
+            document.querySelector('.slide').style.animationObjectFit = 'cover';
             idRepo = id;
         })
         .catch(err => console.error(err));
 }
 
 const Close_Modal_Window = () => {
-    ModalButtons.addEventListener('click', () => ModalWind.style.display = 'none');
+    ModalButtons.addEventListener('click', () => {
+        ModalWind.style.display = 'none';
+        document.querySelector('.slide').style.animationName = 'none';
+    });
 }
 
 const CheckOutModal = () => {

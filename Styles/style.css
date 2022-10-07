@@ -356,6 +356,7 @@ nav {
     position: relative;
     height: 500px;
     width: 1000px;
+    transition: all 2s;
 }
 
 .closeModal {
@@ -737,11 +738,11 @@ input[id="3"]:checked~.pagination .pagination-item[for="3"] {
         position: absolute;
     }
 
-    .btnRepo {
+    /* .btnRepo {
         padding: 12px 20px;
         bottom: 120px;
         right: 20px;
-    }
+    } */
 
     .pagination {
         bottom: 200px;
@@ -834,6 +835,10 @@ input[id="3"]:checked~.pagination .pagination-item[for="3"] {
 .viewTop {
     animation: viewTop 3s;
 }
+.viewDown {
+    animation: viewDown 3s;
+    /* animation: viewDown2 4s ; */
+}
 
 @keyframes viewTop {
     0% {
@@ -841,6 +846,24 @@ input[id="3"]:checked~.pagination .pagination-item[for="3"] {
     }
 
     100% {
+        transform: translateY(0); 
+    }
+}
+
+@keyframes viewDown {
+    0% {
+        transform: translateY(-500px);
+    }
+     80% {
+        transition: all 0.5s;
+        transform: translateY(-2px);
+    }
+    90% {
+        transition: all 2s;
+        transform: translateY(-10px);
+    } 
+    100% {
+        transition: all 2s;
         transform: translateY(0);
     }
 }
