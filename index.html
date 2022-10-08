@@ -72,8 +72,7 @@
                 <p class="tittle-section">PROJECTS</p>
             </div>
         </div>
-        <div id="Insert-Btns" class="container-modal-proyects">
-        </div>
+        <div id="Insert-Btns" class="container-modal-proyects"></div>
     </section>
     <section id="Contact-me" class="Contact-me">
         <div class="container-contact">
@@ -81,7 +80,7 @@
                 <h1 class="tittle-contact">Hi, if you want to contact me, fill out the form with your information.</h1>
             </div>
             <div id="Container-contact" class="Form-send Container-contact">
-                <form action="https://formsubmit.co/sgomezp.dev@gmail.com" onsubmit="" method="POST">
+                <form action="https://formsubmit.co/09feeef2ea7443937b47421c4a5106b5" onsubmit="EmailSend();" method="POST">
                     <div class="Form-container-send">
                         <div class="cont-position">
                             <input type="text" id="name" class="text name" placeholder=" " required name="name">
@@ -101,6 +100,8 @@
                             <label class="lb" for="Coments">Coments:</label>
                         </div>
                         <input class="button-send" type="submit" value="Send">
+                        <input type="hidden" name="_captcha" value="false">
+                        <!-- <input type="hidden" name="_next" value="https://dev-samgomez.github.io/Samuel_Portfolio/"> -->
                     </div>
                 </form>
             </div>
@@ -118,26 +119,14 @@
                 <input type="radio" id="2" name="image-slide" hidden />
                 <input type="radio" id="3" name="image-slide" hidden />
                 <div class="slide">
-                    <div class="item-slide">
-                        <img src="./Images/Images-Repos/Project-1/Principal.JPG">
-                    </div>
-                    <div class="item-slide">
-                        <img src="./Images/Images-Repos/Project-1/MyOffice3.jpeg">
-                    </div>
-                    <div class="item-slide">
-                        <img src="./Images/Images-Repos/Project-1/Me.jpeg">
-                    </div>
+                    <div class="item-slide"><img id="image-1"></div>
+                    <div class="item-slide"><img id="image-2"></div>
+                    <div class="item-slide"><img id="image-3"></div>
                 </div>
                 <div class="pagination">
-                    <label class="pagination-item" for="1">
-                        <img src="./Images/Images-Repos/Project-1/Principal.JPG">
-                    </label>
-                    <label class="pagination-item" for="2">
-                        <img src="./Images/Images-Repos/Project-1/MyOffice3.jpeg">
-                    </label>
-                    <label class="pagination-item" for="3">
-                        <img src="./Images/Images-Repos/Project-1/Me.jpeg">
-                    </label>
+                    <label class="pagination-item" for="1"><img id="imageLb-1"></label>
+                    <label class="pagination-item" for="2"><img id="imageLb-2"></label>
+                    <label class="pagination-item" for="3"><img id="imageLb-3"></label>
                 </div>
             </div>
             <div class="listGitHub">

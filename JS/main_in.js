@@ -15,8 +15,6 @@ const ModalWind = document.querySelector('#ModalView');
 const ModalButtons = document.querySelector('.closeModal');
 
 //Buttons Active Modal
-const btn0 = document.getElementById('btn0');
-const btn1 = document.getElementById('btn1');
 const btnRepo = document.getElementById('btnRepo');
 let idRepo = 0;
 
@@ -31,6 +29,7 @@ const ScrollNavAbout = document.querySelector('.container-about');
 const ContainerSpace = document.querySelector('.container-space');
 //This is div container projects
 const ContainerProj = document.querySelector('.container-space-pj');
+const ContainerProjButtons = document.querySelector('.container-modal-proyects');
 //This is div container contact
 const ContainerContact = document.querySelector('.Container-contact');
 
@@ -47,8 +46,6 @@ const objImputs = {
 const Transition = (i, NumInt, Sc) => {
     return i / NumInt + Sc;
 }
-
-const CalcTimeMov = 7 + 1.7;
 
 const ScrollView = () => {
     oParallax.style.animation = '';
@@ -68,6 +65,13 @@ const ScrollView = () => {
     ContainerProj.classList.add('viewTop');
     IsOpacity = 0;
     Bottom = 0;
+    //Visible buttons Projects
+    Bottom = ScrollNavAbout.offsetHeight / 2;
+    IsOpacity = ContainerProjButtons.style.opacity;
+    ContainerProjButtons.style.opacity = IsOpacity == 1 ? 1 : ScrollTop >= Bottom ? 1 : 0;
+    ContainerProjButtons.classList.add('viewTop');
+    IsOpacity = 0;
+    Bottom = 0;
     //Visible Contact
     Bottom = ContainerProj.offsetHeight / 2;
     IsOpacity = ContainerContact.style.opacity;
@@ -75,13 +79,6 @@ const ScrollView = () => {
     ContainerContact.classList.add('viewTop');
     ScrollTop > 400 ? ScrollBtn.opacity = 1 : ScrollBtn.opacity = 0;
 }
-
-/* const GetSize = () => {
-    let oWidth = document.documentElement.clientWidth;
-    let oHeight = document.documentElement.clientHeight;
-    let content = `Width: ${oWidth} and Height: ${oHeight}`;
-    let Resize = document.getElementById("SetGetElements").style;
-} */
 
 const navSlide = () => {
     Burguer.addEventListener('click', () => {
@@ -150,6 +147,15 @@ function ModalViewProject(id) {
     oParallax.classList.add('viewDown');
     queryGithubAPI()
         .then(repos => {
+            const imageModal = [
+                `./Images/Images-Repos/Project-${id + 1}/Item-1.jpeg`,
+                `./Images/Images-Repos/Project-${id + 1}/Item-2.jpeg`,
+                `./Images/Images-Repos/Project-${id + 1}/Item-3.jpeg`
+            ];
+            imageModal.map((item,index) => {
+               document.getElementById(`image-${index + 1}`).src = item;
+               document.getElementById(`imageLb-${index + 1}`).src = item;
+            });
             document.getElementById('Insert-Tittle').innerHTML = repos[id].name;
             document.getElementById('Insert-Description').innerHTML = repos[id].description;
             document.getElementById('starts').innerHTML = `${repos[id].stargazers_count} Starts`;
@@ -185,7 +191,6 @@ const ClickImputsModal = () => {
             key.map((vl, id) => {
                 if (id == 1) {
                     vl.addEventListener('click', () => {
-                        //console.log(vl);
                         if (document.querySelector('.slide').style.animationName == 'none') {
                             return
                         }
@@ -198,11 +203,18 @@ const ClickImputsModal = () => {
                             document.querySelector('.slide').style.animationIterationCount = 'infinite';
                             document.querySelector('.slide').style.animationObjectFit = 'cover';
                         }, 5000);
-                        //}
                     });
                 }
             });
         });
+}
+
+const EmailSend = () => {
+    document.getElementById('email').innerHTML = " ";
+    document.getElementById('name').innerHTML = " ";
+    document.getElementById('company').innerHTML = " ";
+    document.getElementById('coments').innerHTML = " ";
+    return window.alert('The information has been sent successfully, you will receive a response as soon as possible!');
 }
 
 window.addEventListener('load', OnLoad)
