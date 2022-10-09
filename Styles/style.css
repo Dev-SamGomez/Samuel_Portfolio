@@ -1,3 +1,4 @@
+/*Configure initial parameters*/
 * {
     margin: 0;
     padding: 0;
@@ -12,8 +13,11 @@ body {
 html {
     scroll-behavior: smooth;
 }
+/*Configure initial parameters*/
 
+/*Section Nav Bar*/
 
+/*Section Nav Bar*/
 .general-position-top {
     margin: 0;
     padding: 0;
@@ -216,15 +220,6 @@ nav {
     padding: 10px;
 }
 
-/*
-.Container-about-info>ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-}
-*/
 .about-item-div {
     width: 100%;
     height: auto;
@@ -269,7 +264,6 @@ nav {
 }
 
 .window-pj-modal {
-    /*border: 1px solid #000;*/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -292,7 +286,6 @@ nav {
 }
 
 .Project-Config-Image-preModal {
-    /* background-image: linear-gradient(rgba(0, 0, 0, 0.377), rgba(0, 0, 0, 0.377)), url('../Images/Me.jpeg'); */
     background-size: cover;
     background-position: center;
 }
@@ -573,12 +566,6 @@ input[id="3"]:checked~.pagination .pagination-item[for="3"] {
 
 /*End Slider*/
 
-
-.reducedsize {
-    width: 400px;
-    max-width: 400px;
-}
-
 @media screen and (max-width:350px) {
     body {
         background-color: #fff;
@@ -829,7 +816,6 @@ input[id="3"]:checked~.pagination .pagination-item[for="3"] {
 }
 .viewDown {
     animation: viewDown 3s;
-    /* animation: viewDown2 4s ; */
 }
 
 @keyframes viewTop {
