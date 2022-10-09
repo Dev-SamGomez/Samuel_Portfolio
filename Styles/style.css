@@ -291,8 +291,8 @@ nav {
     background-color: #0E2038;
 }
 
-.Pj0 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.377), rgba(0, 0, 0, 0.377)), url('../Images/Me.jpeg');
+.Project-Config-Image-preModal {
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.377), rgba(0, 0, 0, 0.377)), url('../Images/Me.jpeg'); */
     background-size: cover;
     background-position: center;
 }
@@ -1029,6 +1029,7 @@ input[id="3"]:checked~.pagination .pagination-item[for="3"] {
     line-height: 1.5em;
     text-align: center;
     color: #ffffff;
+    overflow-wrap: break-word;
 }
 
 .Contact-me {
