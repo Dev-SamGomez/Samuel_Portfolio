@@ -135,9 +135,16 @@ function VisitRepo() {
     btnRepo.addEventListener('click', () => {
         queryGithubAPI()
             .then(repos => {
-                window.open(repos[idRepo].html_url, '_blank');
+                const selectedRepo = repos.find(repo => repo.id === idRepo);
+                if (selectedRepo) {
+                    window.open(selectedRepo.html_url, '_blank');
+                } else {
+                    console.error(`Repo with id ${idRepo} not found`);
+                    alert(`Repo with id ${idRepo} not found`);
+                }
             })
             .catch(err => console.error(err));
+            idRepo = 0;
     });
 }
 
@@ -147,27 +154,35 @@ function ModalViewProject(id) {
     oParallax.classList.add('viewDown');
     queryGithubAPI()
         .then(repos => {
-            const imageModal = [
-                `./Images/Images-Repos/Project-${id + 1}/Item-1.jpeg`,
-                `./Images/Images-Repos/Project-${id + 1}/Item-2.jpeg`,
-                `./Images/Images-Repos/Project-${id + 1}/Item-3.jpeg`
-            ];
-            imageModal.map((item,index) => {
-               document.getElementById(`image-${index + 1}`).src = item;
-               document.getElementById(`imageLb-${index + 1}`).src = item;
-            });
-            document.getElementById('Insert-Tittle').innerHTML = repos[id].name;
-            document.getElementById('Insert-Description').innerHTML = repos[id].description;
-            document.getElementById('starts').innerHTML = `${repos[id].stargazers_count} Starts`;
-            document.getElementById('watch').innerHTML = `${repos[id].watchers} Watching`;
-            document.getElementById('forks').innerHTML = `${repos[id].forks_count} Forks`;
-            document.querySelector('.slide').style.animationName = 'autoplay';
-            document.querySelector('.slide').style.animationDuration = '6.5s';
-            document.querySelector('.slide').style.animationDirection = 'alternate';
-            document.querySelector('.slide').style.animationFillMode = 'forwards';
-            document.querySelector('.slide').style.animationIterationCount = 'infinite';
-            document.querySelector('.slide').style.animationObjectFit = 'cover';
-            idRepo = id;
+            const selectedRepo = repos.find(repo => repo.id === id);
+
+            if (selectedRepo) {
+                const imageModal = [
+                    `./Images/Images-Repos/${selectedRepo.name}/Item-1.jpeg`,
+                    `./Images/Images-Repos/${selectedRepo.name}/Item-3.jpeg`,
+                    `./Images/Images-Repos/${selectedRepo.name}/Item-2.jpeg`,
+                ];
+                imageModal.map((item, index) => {
+                    document.getElementById(`image-${index + 1}`).src = item;
+                    document.getElementById(`imageLb-${index + 1}`).src = item;
+                });
+                document.getElementById('Insert-Tittle').innerHTML = selectedRepo.name;
+                document.getElementById('Insert-Description').innerHTML = selectedRepo.description;
+                document.getElementById('starts').innerHTML = `${selectedRepo.stargazers_count} Starts`;
+                document.getElementById('watch').innerHTML = `${selectedRepo.watchers} Watching`;
+                document.getElementById('forks').innerHTML = `${selectedRepo.forks_count} Forks`;
+                document.querySelector('.slide').style.animationName = 'autoplay';
+                document.querySelector('.slide').style.animationDuration = '6.5s';
+                document.querySelector('.slide').style.animationDirection = 'alternate';
+                document.querySelector('.slide').style.animationFillMode = 'forwards';
+                document.querySelector('.slide').style.animationIterationCount = 'infinite';
+                document.querySelector('.slide').style.animationObjectFit = 'cover';
+                idRepo = id;
+            } else {
+                console.error(`Repo with id ${id} not found`);
+                document.getElementById('Insert-Tittle').innerHTML = "Not found";
+                document.getElementById('Insert-Description').innerHTML = "Repo can't be found, please try again.";
+            }
         })
         .catch(err => console.error(err));
 }
