@@ -133,18 +133,18 @@ const ParallaxEffect = () => {
 
 function VisitRepo() {
     btnRepo.addEventListener('click', () => {
+        //console.log(idRepo);
         queryGithubAPI()
             .then(repos => {
                 const selectedRepo = repos.find(repo => repo.id === idRepo);
                 if (selectedRepo) {
                     window.open(selectedRepo.html_url, '_blank');
                 } else {
-                    console.error(`Repo with id ${idRepo} not found`);
+                    //console.error(`Repo with id ${idRepo} not found`);
                     alert(`Repo with id ${idRepo} not found`);
                 }
             })
             .catch(err => console.error(err));
-            idRepo = 0;
     });
 }
 
@@ -178,6 +178,7 @@ function ModalViewProject(id) {
                 document.querySelector('.slide').style.animationIterationCount = 'infinite';
                 document.querySelector('.slide').style.animationObjectFit = 'cover';
                 idRepo = id;
+                console.log(idRepo);
             } else {
                 console.error(`Repo with id ${id} not found`);
                 document.getElementById('Insert-Tittle').innerHTML = "Not found";

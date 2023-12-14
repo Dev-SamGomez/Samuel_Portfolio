@@ -22,7 +22,7 @@ async function fetchData(urlApi) {
     `).join('')}
     `;
         insert_btn.innerHTML = view;
-        repos.map(item => {console.log(item)});
+        // repos.map(item => {console.log(item)});
     } catch (error) {
         console.log(error);
     }
